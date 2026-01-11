@@ -5,7 +5,7 @@ const router = Router();
 
 router.post('/events', createActivity);
 router.get('/events', getEvents)
-router.get('/events/stast', getEventsStats)
+router.get('/events/stats', getEventsStats)
 router.delete('/events', deleteEvents)
 
 
