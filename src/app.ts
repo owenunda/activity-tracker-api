@@ -5,7 +5,7 @@ const app: Application = express();
 
 app.use(express.json());
 
-app.get('/health', (req, res) => {
+app.get('/health', (_, res) => {
   res.json({status: 'ok'});
 });
 
