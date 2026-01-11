@@ -21,17 +21,15 @@ Ejemplos de documentos MongoDB
 
 ``` bash
 {
-  "_id": "65fabc...",
   "type": "login",
   "userId": "u123",
   "ip": "192.168.0.1",
-  "device": "mobile",
   "metadata": {
     "browser": "Chrome",
     "os": "Windows"
-  },
-  "createdAt": "2025-01-10T10:20:00Z"
+  }
 }
+
 ```
 ma;ana se podria guardar otro evento asi
 ``` bash
@@ -39,10 +37,9 @@ ma;ana se podria guardar otro evento asi
   "type": "error",
   "code": 500,
   "message": "Internal Server Error",
-  "stack": "...",
-  "service": "payments",
-  "createdAt": "2025-01-10T11:00:00Z"
+  "service": "payments"
 }
+
 
 ```
 
