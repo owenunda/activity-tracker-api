@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { Activity } from "../models/activity.model";
+import { count } from "node:console";
 
 
 export const createActivity = async (req: Request, res: Response) => {
@@ -55,5 +56,58 @@ export const getEvents = async (req: Request, res: Response) => {
 
   } catch (error) {
     res.status(500).json({ message: 'Error fetching events' })
+  }
+}
+
+export const getEventsStats = async (req: Request, res: Response) => {
+  try {
+    const stastByType = await Activity.aggregate([
+      {
+        $group: {
+          _id: '$type',
+          count: { $sum: 1 }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          type: '$_id',
+          count: 1
+        }
+      }
+    ]);
+
+
+    const statsByDay = await Activity.aggregate([
+      {
+        $group: {
+          _id: {
+            $dateToString: {
+              format: "%Y-%m-%d",
+              date: "$createdAt"
+            }
+          },
+          count: { $sum: 1 }
+        }
+      },
+      {
+        $project: {
+          _id: 0,
+          day: "$_id",
+          count: 1
+        }
+      },
+      {
+        $sort: { day: 1 }
+      }
+    ]);
+
+    res.json({
+      byType: stastByType,
+      byDay: statsByDay
+    });
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({message: "Error generatins stast"})
   }
 }
