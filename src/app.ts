@@ -7,7 +7,7 @@ const app: Application = express();
 app.use(express.json());
 
 // rutas
-app.use('/activities', activityRoutes)
+app.use('/api/v1', activityRoutes)
 
 app.get('/health', (_, res) => {
   res.json({status: 'ok'});

@@ -3,7 +3,7 @@ import { createActivity } from '../controllers/activity.controller';
 
 const router = Router();
 
-router.post('/', createActivity);
+router.post('/events', createActivity);
 
 
 export default router;
