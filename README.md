@@ -52,5 +52,3 @@ ma;ana se podria guardar otro evento asi
 - GET /events -> listar (con filtros)
 - GET /events/stats -> agregaciones
 - DELETE /events -> Limpieza
-
-# activity-tracker-api
