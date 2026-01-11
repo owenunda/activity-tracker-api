@@ -1,9 +1,11 @@
 import express, { type Application } from "express";
+import cors from "cors";
 import activityRoutes from "./routes/activity.routes"
 
 
 const app: Application = express();
 
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 // rutas
