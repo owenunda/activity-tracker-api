@@ -1,5 +1,5 @@
 {
-  "name": "(pt)-activity-tracker-api",
+  "name": "activity-tracker-api",
   "version": "1.0.0",
   "description": "---",
   "main": "index.js",
@@ -9,13 +9,14 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "express": "^5.2.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^25.0.6",
+    "nodemon": "^3.1.11",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
   }
